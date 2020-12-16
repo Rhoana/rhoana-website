@@ -1,4 +1,4 @@
-# Harvard DS10 / STAT10 Course Website
+# RhoANA Website with VCG style by Tica & Fritz
 
 ## Install
 
@@ -17,3 +17,6 @@ bundle
 ```
 bundle exec jekyll serve --watch
 ```
+
+## Update webpage content
+```Change individual readme file under /2020```
