@@ -1,0 +1,43 @@
+<footer class="site-footer">
+
+  <div class="wrap">
+    <div class="flex-c flex-jc-c site-footer-wrap">
+       <div class="vcg-text-logo flex-c flex-jc-e flex-a-c">
+         <span class="logo-text">Visual Computing Group</span>
+         <img class="vcg-logo" src="../assets/images/vcg-logo-white.png" width="100%" />
+
+       </div>
+      <div class="separator"></div>
+      <img class="seas-logo" src="../assets/images/seas-logo-white.png" />
+
+    </div>
+    <nav>
+      <ul class="flex-c flex-jc-c">
+        {% assign spages = site.pages | where_exp: "item" , "item.path contains '2020'" | sort: 'order' %}
+
+        {% for spage in spages %}
+        {% unless spage.url == "/" or spage.url == "/redirects.json" or spage.exclude or spage.nomenu %}
+        <li>
+          <a
+            href="{{ spage.url | prepend: site.baseurl }}"
+            class="{% if page.url == spage.url %}active{% endif %}"
+          >
+            {{ spage.menu }}
+          </a>
+        </li>
+        {% endunless %}
+        {% endfor %}
+        <li>
+          <a href="https://vcg.seas.harvard.edu" target="_blank">
+            VCG
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p class="attributions">Copyright © 2020 Harvard Visual Computing Group</p>
+    <p class="attributions">
+      Website design by <a href="https://lekschas.de">Fritz Lekschas</a> and <a href="https://ticalin.com">Tica Lin</a>.
+    </p>
+  </div>
+
+</footer>

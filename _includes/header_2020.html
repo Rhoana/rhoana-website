@@ -1,0 +1,65 @@
+<header class="site-header">
+
+  <div class="wrap flex-c">
+    <div class="site-title-all">
+      <div id="title" class="flex-c">
+        <div id="title-logo" class="flex-c flex-a-c">
+          <img
+            src="{{ site.baseurl }}/assets/images/vcg-logo.jpg"
+            alt="Logo"
+            onerror="this.src='{{ site.baseurl }}/assets/images/vcg-logo.jpg'"
+          />
+        </div>
+        <div id="title-text" class="flex-c flex-v">
+          <div id="title-harvard">Harvard VCG</div>
+          <div class="flex-c">
+            <span id="title-rhoana">RhoANA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Main menu">
+      <div id="toggable-menu">
+
+        <input type="checkbox" />
+
+        <div class="nav-hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div class="nav-hamburger-static">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <ul class="no-list-style site-nav flex-c">
+          {% assign spages = site.pages | where_exp: "item" , "item.path contains '2020'" | sort: 'order' %}
+
+          {% for spage in spages %}
+            {% unless spage.url == "/" or spage.url == "/redirects.json" or spage.exclude or spage.nomenu %}
+            <li>
+              <a
+                href="{{ spage.url | prepend: site.baseurl }}"
+                class="{% if page.url == spage.url %}active{% endif %}"
+              >
+                {{ spage.menu }}
+              </a>
+            </li>
+            {% endunless %}
+          {% endfor %}
+          <li class="flex-g-1">
+            <a href="https://vcg.seas.harvard.edu" target="_blank">
+              VCG
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
